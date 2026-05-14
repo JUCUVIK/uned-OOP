@@ -4,8 +4,8 @@
  * 
  * Subclases: Operario, GestorPlanta, AdministradorSistema, MecanicoCinta
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public abstract class Trabajador
 {
@@ -18,17 +18,6 @@ public abstract class Trabajador
     private double salario;
     private String fechaIngreso;
 
-    /**
-     * Constructor de Trabajador.
-     * @param nombre Nombre del trabajador.
-     * @param apellidos Apellidos del trabajador.
-     * @param dni DNI del trabajador.
-     * @param direccion Dirección del trabajador.
-     * @param numSeguridadSocial Número de la Seguridad Social.
-     * @param puesto Puesto que desempeña.
-     * @param salario Salario del trabajador.
-     * @param fechaIngreso Fecha de ingreso en la fábrica.
-     */
     public Trabajador(String nombre, String apellidos, String dni,
                       String direccion, String numSeguridadSocial,
                       String puesto, double salario, String fechaIngreso)
@@ -63,19 +52,11 @@ public abstract class Trabajador
     public void setSalario(double salario) { this.salario = salario; }
     public void setFechaIngreso(String fechaIngreso) { this.fechaIngreso = fechaIngreso; }
 
-    /**
-     * Devuelve el nombre completo del trabajador.
-     * @return Nombre y apellidos.
-     */
     public String getNombreCompleto()
     {
         return nombre + " " + apellidos;
     }
 
-    /**
-     * Método abstracto que devuelve el perfil del trabajador.
-     * @return Perfil del trabajador.
-     */
     public abstract String getPerfil();
 
     public String toString()

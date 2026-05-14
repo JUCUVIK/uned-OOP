@@ -1,8 +1,8 @@
 /**
  * Tapicería de tela.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class TapiceriaTela extends Tapiceria
 {

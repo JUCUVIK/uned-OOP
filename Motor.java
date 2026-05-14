@@ -4,8 +4,8 @@
  * 
  * Subclases: MotorElectrico, MotorGasolina, MotorHibrido
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public abstract class Motor
 {
@@ -13,12 +13,6 @@ public abstract class Motor
     private double potencia;      // en CV
     private int numCilindros;
 
-    /**
-     * Constructor de Motor.
-     * @param cilindrada Cilindrada en centímetros cúbicos.
-     * @param potencia Potencia en caballos de vapor.
-     * @param numCilindros Número de cilindros del motor.
-     */
     public Motor(double cilindrada, double potencia, int numCilindros)
     {
         this.cilindrada = cilindrada;
@@ -36,16 +30,8 @@ public abstract class Motor
     public void setPotencia(double potencia) { this.potencia = potencia; }
     public void setNumCilindros(int numCilindros) { this.numCilindros = numCilindros; }
 
-    /**
-     * Método abstracto que devuelve el tipo de motor como cadena.
-     * @return Tipo de motor.
-     */
     public abstract String getTipo();
 
-    /**
-     * Representación textual del motor.
-     * @return Cadena con los datos del motor.
-     */
     public String toString()
     {
         return getTipo() + " [Cilindrada=" + cilindrada + "cc, Potencia=" 

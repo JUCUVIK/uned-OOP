@@ -1,8 +1,8 @@
 /**
  * Rueda de tipo todoterreno.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class RuedaTodoterreno extends Rueda
 {

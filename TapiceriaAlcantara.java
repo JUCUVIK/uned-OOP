@@ -1,8 +1,8 @@
 /**
  * Tapicería de alcántara.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class TapiceriaAlcantara extends Tapiceria
 {

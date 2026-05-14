@@ -3,8 +3,8 @@
  * durante el proceso de ensamblaje. Permite consultas por fecha
  * y componente.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class RegistroMontaje
 {
@@ -15,15 +15,6 @@ public class RegistroMontaje
     private String descripcion;
     private int vehiculoId;
 
-    /**
-     * Constructor de RegistroMontaje.
-     * @param fecha Fecha del registro (formato dd/mm/yyyy).
-     * @param segundo Segundo de la simulación en que ocurrió.
-     * @param numeroCadena Número de la cadena de montaje.
-     * @param componente Componente ensamblado (Chasis, Motor, etc.).
-     * @param descripcion Descripción de la acción realizada.
-     * @param vehiculoId ID del vehículo afectado.
-     */
     public RegistroMontaje(String fecha, int segundo, int numeroCadena,
                             String componente, String descripcion, int vehiculoId)
     {

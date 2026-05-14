@@ -4,15 +4,11 @@
  * Diseño desacoplado: se puede sustituir por una interfaz gráfica
  * sin modificar el dashboard.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class VisualizadorConsola implements IVisualizador
 {
-    /**
-     * Muestra el estado de todas las cadenas de montaje.
-     * @param cadenas Array de cadenas de montaje.
-     */
     public void mostrarEstadoCadenas(CadenaMontaje[] cadenas)
     {
         mostrarSeparador();
@@ -40,10 +36,6 @@ public class VisualizadorConsola implements IVisualizador
         mostrarSeparador();
     }
 
-    /**
-     * Muestra el estado del almacén de componentes.
-     * @param almacen Almacén de datos.
-     */
     public void mostrarEstadoAlmacen(IAlmacenDatos almacen)
     {
         mostrarSeparador();
@@ -56,42 +48,26 @@ public class VisualizadorConsola implements IVisualizador
         mostrarSeparador();
     }
 
-    /**
-     * Muestra un mensaje informativo.
-     * @param mensaje Texto del mensaje.
-     */
     public void mostrarMensaje(String mensaje)
     {
         System.out.println("  [INFO] " + mensaje);
     }
 
-    /**
-     * Muestra un mensaje de error.
-     * @param error Texto del error.
-     */
     public void mostrarError(String error)
     {
         System.out.println("  [ERROR] " + error);
     }
 
-    /**
-     * Muestra el dashboard completo: cadenas + almacén.
-     * @param cadenas Array de cadenas de montaje.
-     * @param almacen Almacén de datos.
-     */
     public void mostrarDashboard(CadenaMontaje[] cadenas, IAlmacenDatos almacen)
     {
         System.out.println();
-        System.out.println("  ╔══════════════════════════════════════════════════╗");
-        System.out.println("  ║            DASHBOARD - FÁBRICA DE VEHÍCULOS     ║");
-        System.out.println("  ╚══════════════════════════════════════════════════╝");
+        System.out.println("  ※╔══════════════════════════════════════════════════╗※");
+        System.out.println("  ※║        DASHBOARD - FÁBRICA DE VEHÍCULOS          ║※");
+        System.out.println("  ※╚══════════════════════════════════════════════════╝※");
         mostrarEstadoCadenas(cadenas);
         mostrarEstadoAlmacen(almacen);
     }
 
-    /**
-     * Muestra una línea separadora.
-     */
     public void mostrarSeparador()
     {
         System.out.println("  --------------------------------------------------");

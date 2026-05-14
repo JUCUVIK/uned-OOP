@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * Diseño desacoplado: permite cambiar la estructura de datos sin
  * modificar el sistema de gestión.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public interface IAlmacenDatos
 {

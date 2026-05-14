@@ -7,8 +7,8 @@ import java.util.Comparator;
  * Coordina el almacén, las cadenas de montaje, el dashboard
  * y el planificador. Gestiona trabajadores y componentes.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class SistemaGestion
 {
@@ -17,10 +17,6 @@ public class SistemaGestion
     private Dashboard dashboard;
     private Planificador planificador;
 
-    /**
-     * Constructor del Sistema de Gestión.
-     * Inicializa todos los subsistemas.
-     */
     public SistemaGestion()
     {
         this.almacen = new AlmacenDatos();
@@ -113,6 +109,19 @@ public class SistemaGestion
     {
         if (numCadena < 1 || numCadena > 3) {
             System.out.println("  Error: Número de cadena inválido (1-3).");
+            return false;
+        }
+
+        if (tipoVehiculo < 1 || tipoVehiculo > 3 || 
+            tipoMotor < 1 || tipoMotor > 3 ||
+            tipoTapiceria < 1 || tipoTapiceria > 3 ||
+            tipoRueda < 1 || tipoRueda > 3) {
+            System.out.println("  Error: Tipo de configuración inválido. Debes introducir un valor del 1 al 3.");
+            return false;
+        }
+
+        if (unidades <= 0) {
+            System.out.println("  Error: Las unidades a producir deben ser mayores que cero.");
             return false;
         }
 

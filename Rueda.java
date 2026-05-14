@@ -5,8 +5,8 @@
  * 
  * Subclases: RuedaNormal, RuedaDeportiva, RuedaTodoterreno
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public abstract class Rueda
 {
@@ -15,13 +15,6 @@ public abstract class Rueda
     private int indiceCargaKg;            // índice de carga en kilogramos
     private int codigoVelocidadKmh;       // código de velocidad en km/h
 
-    /**
-     * Constructor de Rueda.
-     * @param anchoMm Ancho en milímetros.
-     * @param diametroLlantaPulgadas Diámetro de la llanta en pulgadas.
-     * @param indiceCargaKg Índice de carga en kilogramos.
-     * @param codigoVelocidadKmh Código de velocidad en km/h.
-     */
     public Rueda(int anchoMm, double diametroLlantaPulgadas, 
                  int indiceCargaKg, int codigoVelocidadKmh)
     {
@@ -43,10 +36,6 @@ public abstract class Rueda
     public void setIndiceCargaKg(int indiceCargaKg) { this.indiceCargaKg = indiceCargaKg; }
     public void setCodigoVelocidadKmh(int c) { this.codigoVelocidadKmh = c; }
 
-    /**
-     * Método abstracto que devuelve el tipo de rueda.
-     * @return Tipo de rueda.
-     */
     public abstract String getTipo();
 
     public String toString()

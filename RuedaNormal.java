@@ -1,8 +1,8 @@
 /**
  * Rueda de tipo normal.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class RuedaNormal extends Rueda
 {

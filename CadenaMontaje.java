@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * Cada cadena tiene 4 estaciones: Chasis, Motor, Tapicería, Ruedas.
  * Cada estación tiene un robot controlado por un operario.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class CadenaMontaje
 {
@@ -32,10 +32,6 @@ public class CadenaMontaje
     // Problemas reparados en esta simulación
     private int problemasReparados;
 
-    /**
-     * Constructor de CadenaMontaje.
-     * @param numero Número identificador de la cadena (1, 2 o 3).
-     */
     public CadenaMontaje(int numero)
     {
         this.numero = numero;
@@ -53,14 +49,6 @@ public class CadenaMontaje
         this.problemasReparados = 0;
     }
 
-    /**
-     * Configura la cadena de montaje para producir un tipo de vehículo.
-     * @param tipoVehiculo Tipo de vehículo (1=Biplaza, 2=Turismo, 3=Furgoneta).
-     * @param tipoMotor Tipo de motor (1=Eléctrico, 2=Gasolina, 3=Híbrido).
-     * @param tipoTapiceria Tipo de tapicería (1=Tela, 2=Cuero, 3=Alcántara).
-     * @param tipoRueda Tipo de rueda (1=Normal, 2=Deportiva, 3=Todoterreno).
-     * @param unidades Unidades a producir.
-     */
     public void configurar(int tipoVehiculo, int tipoMotor, int tipoTapiceria,
                             int tipoRueda, int unidades)
     {
@@ -75,10 +63,6 @@ public class CadenaMontaje
         this.problemasReparados = 0;
     }
 
-    /**
-     * Asigna operarios a las 4 estaciones de la cadena.
-     * @param ops Array de 4 operarios.
-     */
     public void asignarOperarios(Operario[] ops)
     {
         for (int i = 0; i < 4 && i < ops.length; i++) {
@@ -86,10 +70,6 @@ public class CadenaMontaje
         }
     }
 
-    /**
-     * Crea un nuevo vehículo según la configuración de la cadena.
-     * @return Nuevo vehículo con estado PENDIENTE.
-     */
     public Vehiculo crearNuevoVehiculo()
     {
         String[] colores = {"Rojo", "Azul", "Negro", "Blanco", "Gris", "Plata"};
@@ -103,10 +83,6 @@ public class CadenaMontaje
         }
     }
 
-    /**
-     * Obtiene el nombre del tipo de motor configurado.
-     * @return Nombre del tipo de motor.
-     */
     public String getNombreTipoMotor()
     {
         switch (tipoMotor) {
@@ -117,10 +93,6 @@ public class CadenaMontaje
         }
     }
 
-    /**
-     * Obtiene el nombre del tipo de tapicería configurado.
-     * @return Nombre del tipo de tapicería.
-     */
     public String getNombreTipoTapiceria()
     {
         switch (tipoTapiceria) {
@@ -131,10 +103,6 @@ public class CadenaMontaje
         }
     }
 
-    /**
-     * Obtiene el nombre del tipo de rueda configurado.
-     * @return Nombre del tipo de rueda.
-     */
     public String getNombreTipoRueda()
     {
         switch (tipoRueda) {
@@ -145,10 +113,6 @@ public class CadenaMontaje
         }
     }
 
-    /**
-     * Obtiene el nombre del tipo de vehículo configurado.
-     * @return Nombre del tipo de vehículo.
-     */
     public String getNombreTipoVehiculo()
     {
         switch (tipoVehiculo) {
@@ -181,18 +145,11 @@ public class CadenaMontaje
     public int getProblemasReparados() { return problemasReparados; }
     public void incrementarProblemas() { problemasReparados++; }
 
-    /**
-     * Comprueba si hay trabajo pendiente en la cadena.
-     * @return true si quedan unidades por producir o hay un vehículo en curso.
-     */
     public boolean tieneTrabajoPendiente()
     {
         return unidadesPendientes > 0 || vehiculoActual != null;
     }
 
-    /**
-     * Decrementa el tiempo de parada y reactiva la cadena si llega a 0.
-     */
     public void decrementarParada()
     {
         if (tiempoParada > 0) {

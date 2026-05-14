@@ -6,8 +6,8 @@ import java.util.Date;
  * Clase principal de la aplicación Fábrica de Vehículos.
  * Interfaz textual de menús para la gestión completa del sistema.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class factory_main
 {
@@ -72,17 +72,17 @@ public class factory_main
     {
         int opcion = -1;
         while (opcion != 0) {
-            System.out.println("\n  ╔══════════════════════════════════════════════════╗");
-            System.out.println("  ║    SISTEMA DE GESTIÓN - FÁBRICA DE VEHÍCULOS    ║");
-            System.out.println("  ╠══════════════════════════════════════════════════╣");
-            System.out.println("  ║  1. Gestión de Almacén                          ║");
-            System.out.println("  ║  2. Gestión de Trabajadores                     ║");
-            System.out.println("  ║  3. Configurar Cadenas de Montaje               ║");
-            System.out.println("  ║  4. Iniciar Simulación                          ║");
-            System.out.println("  ║  5. Dashboard                                   ║");
-            System.out.println("  ║  6. Consultas y Listados                        ║");
-            System.out.println("  ║  0. Salir                                       ║");
-            System.out.println("  ╚══════════════════════════════════════════════════╝");
+            System.out.println("\n  ※╔══════════════════════════════════════════════════╗※");
+            System.out.println("  ※║    SISTEMA DE GESTIÓN - FÁBRICA DE VEHÍCULOS     ║※");
+            System.out.println("  ※╠══════════════════════════════════════════════════╣※");
+            System.out.println("  ※║  1. Gestión de Almacén                           ║※");
+            System.out.println("  ※║  2. Gestión de Trabajadores                      ║※");
+            System.out.println("  ※║  3. Configurar Cadenas de Montaje                ║※");
+            System.out.println("  ※║  4. Iniciar Simulación                           ║※");
+            System.out.println("  ※║  5. Dashboard                                    ║※");
+            System.out.println("  ※║  6. Consultas y Listados                         ║※");
+            System.out.println("  ※║  0. Salir                                        ║※");
+            System.out.println("  ※╚══════════════════════════════════════════════════╝※");
             System.out.print("  Seleccione una opción: ");
 
             opcion = leerEntero();

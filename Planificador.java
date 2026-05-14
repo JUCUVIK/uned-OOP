@@ -13,8 +13,8 @@ import java.util.Date;
  * - Muy compleja: operarios, mecánicos y administrador; 2-3 problemas
  *   por cadena y al menos 1 caída de luz.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class Planificador
 {
@@ -24,13 +24,8 @@ public class Planificador
     private int segundoActual;
     private Random random;
     private String fechaActual;
+    private boolean[] esperandoMontaje;
 
-    /**
-     * Constructor del Planificador.
-     * @param cadenas Array de 3 cadenas de montaje.
-     * @param almacen Almacén de datos del sistema.
-     * @param dashboard Dashboard para notificaciones.
-     */
     public Planificador(CadenaMontaje[] cadenas, IAlmacenDatos almacen, 
                         Dashboard dashboard)
     {
@@ -41,12 +36,9 @@ public class Planificador
         this.random = new Random();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         this.fechaActual = sdf.format(new Date());
+        this.esperandoMontaje = new boolean[3];
     }
 
-    /**
-     * Ejecuta la simulación según el tipo seleccionado.
-     * @param tipo Tipo de simulación (SIMPLE, COMPLEJA, MUY_COMPLEJA).
-     */
     public void ejecutarSimulacion(TipoSimulacion tipo)
     {
         segundoActual = 0;
@@ -141,10 +133,6 @@ public class Planificador
         }
     }
 
-    /**
-     * Procesa un tick de simulación para una cadena de montaje.
-     * @param cadena Cadena a procesar.
-     */
     private void procesarCadena(CadenaMontaje cadena)
     {
         // Si está averiada, decrementar tiempo de parada
@@ -195,15 +183,19 @@ public class Planificador
                 int tiempoNecesario = operario.getTiempoMontaje();
 
                 // Si el operario es estándar, necesita más segundos (usar parada)
-                if (tiempoNecesario > 1 && cadena.getTiempoParada() == 0) {
+                if (tiempoNecesario > 1 && !esperandoMontaje[cadena.getNumero() - 1]) {
                     // Primer segundo del montaje estándar: poner en espera
                     cadena.setTiempoParada(tiempoNecesario - 1);
+                    esperandoMontaje[cadena.getNumero() - 1] = true;
                     System.out.println("  Cadena " + cadena.getNumero() + ": Operario " 
                                        + operario.getNombreCompleto() + " (" + operario.getPerfil() 
                                        + ") trabajando en " + getEtiquetaEstacion(estacion) 
                                        + " (" + tiempoNecesario + "s)");
                     return;
                 }
+
+                // Reiniciar flag
+                esperandoMontaje[cadena.getNumero() - 1] = false;
 
                 // Realizar el montaje
                 realizarMontaje(cadena, vehiculo, estacion, operario);
@@ -220,13 +212,6 @@ public class Planificador
         }
     }
 
-    /**
-     * Realiza el montaje de un componente en el vehículo.
-     * @param cadena Cadena de montaje.
-     * @param vehiculo Vehículo en construcción.
-     * @param estacion Estación de montaje (0-3).
-     * @param operario Operario que realiza el montaje.
-     */
     private void realizarMontaje(CadenaMontaje cadena, Vehiculo vehiculo, 
                                   int estacion, Operario operario)
     {
@@ -285,10 +270,6 @@ public class Planificador
                   "Montaje completado por " + operario.getNombreCompleto(), vehiculo.getId());
     }
 
-    /**
-     * Provoca una avería en una cadena de montaje.
-     * @param cadena Cadena donde se produce la avería.
-     */
     private void provocarAveria(CadenaMontaje cadena)
     {
         cadena.setAveriada(true);
@@ -311,9 +292,6 @@ public class Planificador
         }
     }
 
-    /**
-     * Asigna operarios de forma aleatoria a las estaciones de cada cadena.
-     */
     private void asignarOperariosAleatorios()
     {
         ArrayList<Operario> operariosDisponibles = ((AlmacenDatos) almacen).getOperarios();
@@ -330,11 +308,6 @@ public class Planificador
         }
     }
 
-    /**
-     * Genera los segundos en que ocurrirán problemas (simulación Compleja).
-     * Al menos 2 problemas por cada cinta.
-     * @return Array [3][2+] con los segundos programados.
-     */
     private int[][] generarProblemasComplejos()
     {
         int[][] problemas = new int[3][];
@@ -348,11 +321,6 @@ public class Planificador
         return problemas;
     }
 
-    /**
-     * Genera los segundos en que ocurrirán problemas (simulación Muy Compleja).
-     * 2-3 problemas por cadena.
-     * @return Array [3][2-3] con los segundos programados.
-     */
     private int[][] generarProblemasMuyComplejos()
     {
         int[][] problemas = new int[3][];
@@ -366,11 +334,6 @@ public class Planificador
         return problemas;
     }
 
-    /**
-     * Obtiene la etiqueta de una estación de montaje.
-     * @param estacion Índice de la estación (0-3).
-     * @return Nombre de la estación.
-     */
     private String getEtiquetaEstacion(int estacion)
     {
         switch (estacion) {
@@ -382,9 +345,6 @@ public class Planificador
         }
     }
 
-    /**
-     * Registra un evento de montaje en el almacén.
-     */
     private void registrar(int numCadena, String componente, String descripcion, int vehiculoId)
     {
         RegistroMontaje reg = new RegistroMontaje(fechaActual, segundoActual, 

@@ -1,8 +1,8 @@
 /**
  * Rueda de tipo deportivo.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class RuedaDeportiva extends Rueda
 {

@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Se puede sustituir por otra implementación (ficheros, BBDD, etc.)
  * sin modificar el resto del sistema.
  * 
- * @author Estudiante UNED
- * @version 1.0
+ * @author Sergio Cuadrado Hernández
+
  */
 public class AlmacenDatos implements IAlmacenDatos
 {
@@ -18,9 +18,6 @@ public class AlmacenDatos implements IAlmacenDatos
     private ArrayList<Trabajador> trabajadores;
     private ArrayList<RegistroMontaje> registros;
 
-    /**
-     * Constructor que inicializa todas las colecciones.
-     */
     public AlmacenDatos()
     {
         motores = new ArrayList<Motor>();
@@ -56,11 +53,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return motores.size();
     }
 
-    /**
-     * Retira un motor del almacén por tipo.
-     * @param tipo Tipo de motor ("Eléctrico", "Gasolina", "Híbrido").
-     * @return Motor retirado, o null si no hay stock.
-     */
     public Motor retirarMotor(String tipo)
     {
         for (int i = 0; i < motores.size(); i++) {
@@ -141,11 +133,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return null;
     }
 
-    /**
-     * Cuenta las ruedas disponibles de un tipo específico.
-     * @param tipo Tipo de rueda.
-     * @return Cantidad de ruedas disponibles de ese tipo.
-     */
     public int contarRuedasPorTipo(String tipo)
     {
         int count = 0;
@@ -157,11 +144,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return count;
     }
 
-    /**
-     * Cuenta los motores disponibles de un tipo específico.
-     * @param tipo Tipo de motor.
-     * @return Cantidad de motores disponibles de ese tipo.
-     */
     public int contarMotoresPorTipo(String tipo)
     {
         int count = 0;
@@ -173,11 +155,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return count;
     }
 
-    /**
-     * Cuenta las tapicerías disponibles de un tipo específico.
-     * @param tipo Tipo de tapicería.
-     * @return Cantidad disponible de ese tipo.
-     */
     public int contarTapiceriasPorTipo(String tipo)
     {
         int count = 0;
@@ -236,10 +213,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return trabajadores;
     }
 
-    /**
-     * Obtiene todos los operarios del almacén.
-     * @return Lista de operarios.
-     */
     public ArrayList<Operario> getOperarios()
     {
         ArrayList<Operario> ops = new ArrayList<Operario>();
@@ -251,10 +224,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return ops;
     }
 
-    /**
-     * Obtiene todos los mecánicos del almacén.
-     * @return Lista de mecánicos de cinta.
-     */
     public ArrayList<MecanicoCinta> getMecanicos()
     {
         ArrayList<MecanicoCinta> mecs = new ArrayList<MecanicoCinta>();
@@ -266,10 +235,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return mecs;
     }
 
-    /**
-     * Obtiene el primer administrador del sistema disponible.
-     * @return Administrador del sistema, o null si no hay.
-     */
     public AdministradorSistema getAdministrador()
     {
         for (Trabajador t : trabajadores) {
@@ -280,10 +245,6 @@ public class AlmacenDatos implements IAlmacenDatos
         return null;
     }
 
-    /**
-     * Obtiene el primer gestor de planta disponible.
-     * @return Gestor de planta, o null si no hay.
-     */
     public GestorPlanta getGestorPlanta()
     {
         for (Trabajador t : trabajadores) {
@@ -304,11 +265,6 @@ public class AlmacenDatos implements IAlmacenDatos
         }
     }
 
-    /**
-     * Busca trabajadores por nombre (búsqueda parcial, no sensible a mayúsculas).
-     * @param texto Texto a buscar en nombre o apellidos.
-     * @return Lista de trabajadores que coinciden.
-     */
     public ArrayList<Trabajador> buscarTrabajadores(String texto)
     {
         ArrayList<Trabajador> resultado = new ArrayList<Trabajador>();
